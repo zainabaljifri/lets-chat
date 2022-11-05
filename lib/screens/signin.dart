@@ -3,6 +3,8 @@ import '../components/custom_button.dart';
 import '../components/custom_input.dart';
 import '../components/navigator.dart';
 import '../controllers/validators.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -15,12 +17,20 @@ class _SignInState extends State<SignIn> {
   bool _submitted = false;
   final TextEditingController _email = TextEditingController(),
       _password = TextEditingController();
+  final auth = FirebaseAuth.instance;
 
-  void _submit() {
+  Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
       print('valid input');
-      // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
+      try{
+        var user = await auth.signInWithEmailAndPassword(email: _email.text, password: _password.text);
+        // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
+        print('signed in successfully');
+        print(auth.currentUser);
+      }catch(e) {
+        print(e);
+      }
     }
   }
 

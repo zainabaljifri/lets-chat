@@ -25,9 +25,12 @@ class _SignUpState extends State<SignUp> {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
       print('valid input');
-      var user = await auth.createUserWithEmailAndPassword(email: _email.text, password: _password.text);
-      print(user.toString());
-      // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
+      try{
+        var user = await auth.createUserWithEmailAndPassword(email: _email.text, password: _password.text);
+        // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
+      }catch(e) {
+        print(e);
+      }
     }
   }
 
