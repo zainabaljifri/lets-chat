@@ -35,12 +35,12 @@ class _SignInState extends State<SignIn> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text("Let’s sign you in",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700)),
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700)),
               const Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 20),
                 child: Text(
                     'Welcome back\nyou’ve been missed!',
-                    style: TextStyle(fontSize: 20)),
+                    style: TextStyle(fontSize: 18)),
               ),
               Form(
                 key: _formKey,

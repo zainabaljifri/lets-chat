@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'screens/signup.dart';
 import 'screens/signin.dart';
-import 'constants.dart';
+import 'theme/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const LetsChat());
 }
 
@@ -14,16 +17,7 @@ class LetsChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: const SignIn(),
-      theme: ThemeData(
-          fontFamily: "Poppins",
-          brightness: Brightness.dark,
-          scaffoldBackgroundColor: kBGColor,
-          appBarTheme: const AppBarTheme(
-              backgroundColor: kBGColor,
-              elevation: 0,
-              toolbarHeight: 120,
-              centerTitle: false)),
+      theme: themeDark,
       routes: <String, WidgetBuilder>{
         '/': (_) => const SignIn(), // Login Page
         // '/profile': (_) => const Profile(), // Home Page

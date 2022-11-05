@@ -3,6 +3,8 @@ import '../components/custom_button.dart';
 import '../components/custom_input.dart';
 import '../components/navigator.dart';
 import '../controllers/validators.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -17,11 +19,14 @@ class _SignUpState extends State<SignUp> {
       _email = TextEditingController(),
       _password = TextEditingController(),
       _confirmPassword = TextEditingController();
+  final auth = FirebaseAuth.instance;
 
-  void _submit() {
+  void _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
       print('valid input');
+      var user = await auth.createUserWithEmailAndPassword(email: _email.text, password: _password.text);
+      print(user.toString());
       // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
     }
   }
@@ -37,12 +42,12 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text("Let’s sign you up",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700)),
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700)),
               const Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 20),
                 child: Text(
                     'Please enter your information below to create an account',
-                    style: TextStyle(fontSize: 20)),
+                    style: TextStyle(fontSize: 18)),
               ),
               Form(
                 key: _formKey,

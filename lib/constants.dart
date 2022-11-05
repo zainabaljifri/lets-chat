@@ -19,5 +19,5 @@ final kFocusedBorder = OutlineInputBorder(
 
 final kErrorBorder = OutlineInputBorder(
   borderRadius: kBorderRadius,
-  borderSide: const BorderSide(color: Colors.red),
+  borderSide: const BorderSide(color: Colors.redAccent),
 );
