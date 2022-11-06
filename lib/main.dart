@@ -3,6 +3,7 @@ import 'screens/signup.dart';
 import 'screens/signin.dart';
 import 'theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'screens/verification.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,7 @@ class LetsChat extends StatelessWidget {
         '/': (_) => const SignIn(), // Login Page
         // '/profile': (_) => const Profile(), // Home Page
         '/signup': (_) => const SignUp(), // The SignUp page
+        '/verify':(_)=>const Verification(),// ت ماتصل
       },
     );
   }

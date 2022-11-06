@@ -25,10 +25,11 @@ class _SignUpState extends State<SignUp> {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
       print('valid input');
-      try{
-        var user = await auth.createUserWithEmailAndPassword(email: _email.text, password: _password.text);
-        // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
-      }catch(e) {
+      try {
+        var user = await auth.createUserWithEmailAndPassword(
+            email: _email.text, password: _password.text);
+        Navigator.of(context).pushReplacementNamed('/verify');
+      } catch (e) {
         print(e);
       }
     }
@@ -82,7 +83,10 @@ class _SignUpState extends State<SignUp> {
                         validation: valConfirmPass,
                         passwordToConfirm: _password.text),
                     CustomButton(text: "Sign up", onPressed: _submit),
-                    const AccountNavigator(question:'Already have an account? ',goToPage:'Sign In',path:'/'),
+                    const AccountNavigator(
+                        question: 'Already have an account? ',
+                        goToPage: 'Sign In',
+                        path: '/'),
                   ],
                 ),
               ),
