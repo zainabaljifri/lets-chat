@@ -25,9 +25,8 @@ class _SignInState extends State<SignIn> {
       print('valid input');
       try{
         var user = await auth.signInWithEmailAndPassword(email: _email.text, password: _password.text);
-        // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>));
+       Navigator.of(context).pushReplacementNamed('/verify');
         print('signed in successfully');
-        print(auth.currentUser);
       }catch(e) {
         print(e);
       }

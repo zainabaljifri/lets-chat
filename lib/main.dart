@@ -23,7 +23,7 @@ class LetsChat extends StatelessWidget {
         '/': (_) => const SignIn(), // Login Page
         // '/profile': (_) => const Profile(), // Home Page
         '/signup': (_) => const SignUp(), // The SignUp page
-        '/verify':(_)=>const Verification(),// ت ماتصل
+        '/verify': (_) => const Verification(), // تصل ولا ماتصل
       },
     );
   }
