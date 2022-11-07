@@ -36,16 +36,16 @@ class _SignInState extends State<SignIn> {
   Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
-      setState(() =>  _loading = true);
+      setState(() => _loading = true);
       print('valid input');
       try {
         var user = await auth.signInWithEmailAndPassword(
             email: _email.text, password: _password.text);
-        setState(() =>  _loading = false);
+        setState(() => _loading = false);
         Navigator.of(context).pushReplacementNamed('/verify');
         print('signed in successfully');
       } catch (e) {
-        setState(() =>  _loading = false);
+        setState(() => _loading = false);
         print(e);
       }
     }
@@ -91,8 +91,8 @@ class _SignInState extends State<SignIn> {
                         path: '/signup'),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
