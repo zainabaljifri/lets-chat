@@ -4,6 +4,7 @@ import '../components/custom_input.dart';
 import '../components/navigator.dart';
 import '../controllers/validators.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 
 class SignIn extends StatefulWidget {

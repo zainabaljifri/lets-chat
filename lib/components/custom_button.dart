@@ -10,10 +10,13 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.red,
+      ),
       child: Container(
-        margin: const EdgeInsets.only(bottom: 10),
+        margin: const EdgeInsets.all(0),
           padding: const EdgeInsets.only(top: 20, bottom: 20),
           alignment: Alignment.center,
           decoration: BoxDecoration(
@@ -23,7 +26,8 @@ class CustomButton extends StatelessWidget {
           child: Text(text,
               style: const TextStyle(
                   fontSize: 20,
-                  color: kBGColor, fontWeight: FontWeight.w600))),
+                  color: kBGColor, fontWeight: FontWeight.w600))
+      ),
     );
   }
 }
