@@ -21,7 +21,6 @@ class LetsChat extends StatelessWidget {
       theme: themeDark,
       routes: <String, WidgetBuilder>{
         '/': (_) => const SignIn(), // Login Page
-        // '/profile': (_) => const Profile(), // Home Page
         '/signup': (_) => const SignUp(), // The SignUp page
         '/verify': (_) => const Verification(), // تصل ولا ماتصل
       },
