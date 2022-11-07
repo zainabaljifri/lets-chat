@@ -19,6 +19,7 @@ class _SignInState extends State<SignIn> {
       _password = TextEditingController(),
       _phone = TextEditingController();
   final auth = FirebaseAuth.instance;
+  bool _loading = false;
 
   void phoneAuth() async {
     await FirebaseAuth.instance.verifyPhoneNumber(
@@ -35,13 +36,16 @@ class _SignInState extends State<SignIn> {
   Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
+      setState(() =>  _loading = true);
       print('valid input');
       try {
         var user = await auth.signInWithEmailAndPassword(
             email: _email.text, password: _password.text);
+        setState(() =>  _loading = false);
         Navigator.of(context).pushReplacementNamed('/verify');
         print('signed in successfully');
       } catch (e) {
+        setState(() =>  _loading = false);
         print(e);
       }
     }
@@ -80,62 +84,15 @@ class _SignInState extends State<SignIn> {
                         hint: 'Enter your password',
                         isPassword: true,
                         validation: valPass),
-                    Text('or'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      height: 55,
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SizedBox(
-                            width: 40,
-                            child: TextField(
-                              controller: TextEditingController(text: '+966'),
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "|",
-                            style: TextStyle(fontSize: 33, color: Colors.grey),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                              child: TextField(
-                            controller: _phone,
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Phone",
-                            ),
-                          ))
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    CustomButton(text: "Sign In", onPressed: phoneAuth),
+                    CustomButton(text: "Sign In", onPressed: _submit),
                     const AccountNavigator(
                         question: 'Don\'nt have an account? ',
                         goToPage: 'Sign Up',
                         path: '/signup'),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
