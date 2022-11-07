@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lets_chat/screens/home.dart';
 import 'dart:async';
+import 'package:lets_chat/components/custom_button.dart';
 
 class Verification extends StatefulWidget {
   const Verification({super.key});
@@ -51,7 +52,17 @@ class _VerificationState extends State<Verification> {
     return isEmailVerify
         ? Home()
         : Scaffold(
-            body: Center(child: Text('omkk سوي تحقق')),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('omkk سوي تحقق'),
+                CustomButton(
+                    text: 'Resend Email Verification',
+                    onPressed: () {
+                      sendVerificationEmail();
+                    })
+              ],
+            ),
           );
   }
 }
