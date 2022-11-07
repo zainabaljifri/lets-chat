@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       messageController.clear();
                       if (massageText!.isNotEmpty) {
-                        _firestore.collection('massages').add({
+                        _firestore.collection('messages').add({
                           'text': massageText,
                           'sender': loggedInUser!.email
                         });
