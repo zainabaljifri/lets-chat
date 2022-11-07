@@ -22,7 +22,7 @@ class _SignUpState extends State<SignUp> {
   final auth = FirebaseAuth.instance;
   bool _loading = false;
 
-  void _submit() async {
+  Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
       setState(() =>  _loading = true);
@@ -31,7 +31,6 @@ class _SignUpState extends State<SignUp> {
         var user = await auth.createUserWithEmailAndPassword(
             email: _email.text, password: _password.text);
         setState(() =>  _loading = false);
-
         Navigator.of(context).pushReplacementNamed('/verify');
       } catch (e) {
         setState(() =>  _loading = false);
