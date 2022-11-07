@@ -4,8 +4,9 @@ import 'screens/signin.dart';
 import 'theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/verification.dart';
+import 'screens/phoneVerify.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const LetsChat());
@@ -22,7 +23,8 @@ class LetsChat extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/': (_) => const SignIn(), // Login Page
         '/signup': (_) => const SignUp(), // The SignUp page
-        '/verify': (_) => const Verification(), // تصل ولا ماتصل
+        '/verify': (_) => const Verification(),
+        '/phoneverify': (_) => const MyVerify(), // تصل ولا ماتصل
       },
     );
   }

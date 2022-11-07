@@ -42,6 +42,7 @@ dependencies:
   firebase_database: ^10.0.4
   modal_progress_hud_nsn: ^0.3.0
   provider: ^6.0.4
+  pinput: ^2.2.16
 
 dev_dependencies:
   flutter_test:
