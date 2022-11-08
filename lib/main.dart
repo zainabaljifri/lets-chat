@@ -4,7 +4,7 @@ import 'screens/signin.dart';
 import 'theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/verification.dart';
-import 'screens/phoneVerify.dart';
+import 'screens/phoneverify.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

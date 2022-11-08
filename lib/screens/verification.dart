@@ -14,6 +14,8 @@ class Verification extends StatefulWidget {
 class _VerificationState extends State<Verification> {
   bool isEmailVerify = false;
   Timer? timer;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -60,6 +62,12 @@ class _VerificationState extends State<Verification> {
                     text: 'Resend Email Verification',
                     onPressed: () {
                       sendVerificationEmail();
+                    }),
+                CustomButton(
+                    text: 'Cancel',
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _auth.signOut();
                     })
               ],
             ),
