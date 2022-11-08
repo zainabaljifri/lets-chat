@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
 class MyVerify extends StatefulWidget {
+  static const String id = "Phone_verify";
   const MyVerify({Key? key}) : super(key: key);
 
   @override

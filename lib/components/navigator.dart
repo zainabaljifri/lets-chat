@@ -17,7 +17,7 @@ class AccountNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushReplacementNamed(path);
+        Navigator.pushNamed(context,path);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

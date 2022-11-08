@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lets_chat/screens/phoneVerify.dart';
+import 'package:lets_chat/screens/signin.dart';
+import 'package:lets_chat/screens/verification.dart';
 import '../components/custom_button.dart';
 import '../components/custom_input.dart';
 import '../components/navigator.dart';
@@ -7,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignUp extends StatefulWidget {
+  static const String id = "Sign_up";
   const SignUp({Key? key}) : super(key: key);
   @override
   State<SignUp> createState() => _SignUpState();
@@ -25,15 +29,15 @@ class _SignUpState extends State<SignUp> {
   Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
-      setState(() =>  _loading = true);
+      setState(() => _loading = true);
       print('valid input');
       try {
         var user = await auth.createUserWithEmailAndPassword(
             email: _email.text, password: _password.text);
-        setState(() =>  _loading = false);
-        Navigator.of(context).pushReplacementNamed('/verify');
+        setState(() => _loading = false);
+        Navigator.pushNamed(context, Verification.id);
       } catch (e) {
-        setState(() =>  _loading = false);
+        setState(() => _loading = false);
         print(e);
       }
     }
@@ -93,7 +97,7 @@ class _SignUpState extends State<SignUp> {
                       const AccountNavigator(
                           question: 'Already have an account? ',
                           goToPage: 'Sign In',
-                          path: '/'),
+                          path: SignIn.id),
                     ],
                   ),
                 ),

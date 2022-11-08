@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:lets_chat/components/custom_button.dart';
 
 class Verification extends StatefulWidget {
+  static const String id = "Verification";
   const Verification({super.key});
 
   @override
@@ -69,8 +70,8 @@ class _VerificationState extends State<Verification> {
                 CustomButton(
                     text: 'Cancel',
                     onPressed: () {
-                      Navigator.pop(context);
                       _auth.signOut();
+                      Navigator.pop(context);
                     })
               ],
             ),

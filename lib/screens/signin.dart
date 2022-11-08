@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:lets_chat/screens/signup.dart';
 import '../components/custom_button.dart';
 import '../components/custom_input.dart';
 import '../components/navigator.dart';
 import '../controllers/validators.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:lets_chat/screens/verification.dart';
 
 class SignIn extends StatefulWidget {
+  static const String id = "Sign_in";
   const SignIn({Key? key}) : super(key: key);
   @override
   State<SignIn> createState() => _SignInState();
@@ -42,7 +45,7 @@ class _SignInState extends State<SignIn> {
         var user = await auth.signInWithEmailAndPassword(
             email: _email.text, password: _password.text);
         setState(() => _loading = false);
-        Navigator.of(context).pushReplacementNamed('/verify');
+        Navigator.pushNamed(context, Verification.id);
         print('signed in successfully');
       } catch (e) {
         setState(() => _loading = false);
@@ -88,7 +91,7 @@ class _SignInState extends State<SignIn> {
                     const AccountNavigator(
                         question: 'Don\'nt have an account? ',
                         goToPage: 'Sign Up',
-                        path: '/signup'),
+                        path: SignUp.id),
                   ],
                 ),
               ),

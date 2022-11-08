@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 User? loggedInUser = FirebaseAuth.instance.currentUser;
 
 class Home extends StatefulWidget {
+  static const String id = "Home_screen";
   const Home({super.key});
 
   @override

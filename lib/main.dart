@@ -20,11 +20,12 @@ class LetsChat extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeDark,
-      routes: <String, WidgetBuilder>{
-        '/': (_) => const SignIn(), // Login Page
-        '/signup': (_) => const SignUp(), // The SignUp page
-        '/verify': (_) => const Verification(),
-        '/phoneverify': (_) => const MyVerify(), // تصل ولا ماتصل
+      initialRoute: SignIn.id,
+      routes: {
+       SignIn.id: (context) => const SignIn(), // Login Page
+        SignUp.id: (context) => const SignUp(), // The SignUp page
+        Verification.id: (context) => const Verification(),
+        MyVerify.id: (context) => const MyVerify(), // تصل ولا ماتصل
       },
     );
   }
