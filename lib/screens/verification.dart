@@ -63,6 +63,9 @@ class _VerificationState extends State<Verification> {
                     onPressed: () {
                       sendVerificationEmail();
                     }),
+                SizedBox(
+                  height: 30,
+                ),
                 CustomButton(
                     text: 'Cancel',
                     onPressed: () {
