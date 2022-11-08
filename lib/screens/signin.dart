@@ -57,45 +57,48 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding:
-              const EdgeInsets.only(top: 70, right: 27, bottom: 60, left: 27),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text("Let’s sign you in",
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700)),
-              const Padding(
-                padding: EdgeInsets.only(top: 10, bottom: 20),
-                child: Text('Welcome back\nyou’ve been missed!',
-                    style: TextStyle(fontSize: 18)),
-              ),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    CustomInput(
-                        submitted: _submitted,
-                        controller: _email,
-                        hint: 'Enter your email address',
-                        isPassword: false,
-                        validation: valEmail),
-                    CustomInput(
-                        submitted: _submitted,
-                        controller: _password,
-                        hint: 'Enter your password',
-                        isPassword: true,
-                        validation: valPass),
-                    CustomButton(text: "Sign In", onPressed: _submit),
-                    const AccountNavigator(
-                        question: 'Don\'nt have an account? ',
-                        goToPage: 'Sign Up',
-                        path: SignUp.id),
-                  ],
+      body: ModalProgressHUD(
+        inAsyncCall: _loading,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.only(top: 70, right: 27, bottom: 60, left: 27),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Let’s sign you in",
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700)),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, bottom: 20),
+                  child: Text('Welcome back\nyou’ve been missed!',
+                      style: TextStyle(fontSize: 18)),
                 ),
-              ),
-            ],
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      CustomInput(
+                          submitted: _submitted,
+                          controller: _email,
+                          hint: 'Enter your email address',
+                          isPassword: false,
+                          validation: valEmail),
+                      CustomInput(
+                          submitted: _submitted,
+                          controller: _password,
+                          hint: 'Enter your password',
+                          isPassword: true,
+                          validation: valPass),
+                      CustomButton(text: "Sign In", onPressed: _submit),
+                      const AccountNavigator(
+                          question: 'Don\'nt have an account? ',
+                          goToPage: 'Sign Up',
+                          path: SignUp.id),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
