@@ -38,7 +38,15 @@ class _SignUpState extends State<SignUp> {
         Navigator.pushNamed(context, Verification.id);
       } catch (e) {
         setState(() => _loading = false);
-        print(e);
+        final snackBar = SnackBar(
+          content: Text(e.toString()),
+          action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () {
+              // Some code to undo the change.
+            },
+          ),
+        );
       }
     }
   }
