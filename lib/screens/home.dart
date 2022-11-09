@@ -19,39 +19,10 @@ class _HomeState extends State<Home> {
   String massageText = "";
   TextEditingController messageController = TextEditingController();
 
-  void getMessages() async {
-    final msgs = await _firestore.collection('messages').get();
-    for (var msg in msgs.docs) {
-      print(msg.data());
-    }
-  }
-
   void signout() {
     _auth.signOut();
     Navigator.pop(context);
   }
-
-  List<ChatMessage> messages = [
-    ChatMessage(
-        messageContent:
-            "Hello, Will jcfwe woifjw ioweo iowedj oidjweod weudhowe oiwdhedod owei",
-        messageType: "receiver"),
-    ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
-    ChatMessage(
-        messageContent: "Hey Kriss, I am doing fine dude. wbu?",
-        messageType: "sender"),
-    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
-    ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "sender"),
-    ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
-    ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
-    ChatMessage(
-        messageContent: "Hey Kriss, I am doing fine dude. wbu?",
-        messageType: "sender"),
-    ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
-    ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "sender"),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,38 +34,8 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: <Widget>[
-          // ListView.builder(
-          //   reverse: true,
-          //   itemCount: messages.length,
-          //   shrinkWrap: true,
-          //   padding: const EdgeInsets.only(top: 10, bottom: 70),
-          //   itemBuilder: (context, index) {
-          //     return Container(
-          //       padding: const EdgeInsets.only(
-          //           left: 14, right: 14, top: 10, bottom: 10),
-          //       child: Align(
-          //         alignment: (messages[index].messageType == "receiver"
-          //             ? Alignment.topLeft
-          //             : Alignment.topRight),
-          //         child: Container(
-          //           decoration: BoxDecoration(
-          //             borderRadius: BorderRadius.circular(20),
-          //             color: (messages[index].messageType == "receiver"
-          //                 ? Colors.black26
-          //                 : Colors.teal),
-          //           ),
-          //           padding: EdgeInsets.all(16),
-          //           child: Text(
-          //             messages[index].messageContent,
-          //             style: TextStyle(fontSize: 15),
-          //           ),
-          //         ),
-          //       ),
-          //     );
-          //   },
-          // ),
           StreamBuilder<QuerySnapshot>(
-            stream: _firestore.collection('messages').snapshots(),
+            stream: _firestore.collection('messages').orderBy('time', descending: false).snapshots(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final msgs = snapshot.data!.docs.reversed;
@@ -102,6 +43,7 @@ class _HomeState extends State<Home> {
                 for (var msg in msgs) {
                   final msgText = msg['text'];
                   final msgSender = msg['sender'];
+                  final messageTime = msg['time'] ;
                   msgWidget.add(Container(
                     padding: const EdgeInsets.only(
                         left: 14, right: 14, top: 10, bottom: 10),
@@ -113,13 +55,13 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                           borderRadius: msgSender == loggedInUser!.email
                               ? const BorderRadius.only(
-                                  topLeft: Radius.circular(30),
-                                  topRight: Radius.circular(30),
-                                  bottomLeft: Radius.circular(30))
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20))
                               : const BorderRadius.only(
-                                  topLeft: Radius.circular(30),
-                                  topRight: Radius.circular(30),
-                                  bottomRight: Radius.circular(30)),
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20)),
                           color: (msgSender == loggedInUser!.email
                               ? Colors.teal
                               : Colors.black26),
@@ -181,7 +123,8 @@ class _HomeState extends State<Home> {
                       if (massageText!.isNotEmpty) {
                         _firestore.collection('messages').add({
                           'text': massageText,
-                          'sender': loggedInUser!.email
+                          'sender': loggedInUser!.email,
+                          'time': FieldValue.serverTimestamp()
                         });
                       }
                     },
@@ -203,8 +146,3 @@ class _HomeState extends State<Home> {
   }
 }
 
-class ChatMessage {
-  String messageContent;
-  String messageType;
-  ChatMessage({required this.messageContent, required this.messageType});
-}
