@@ -22,10 +22,20 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _name = TextEditingController(),
       _email = TextEditingController(),
       _password = TextEditingController(),
-      _confirmPassword = TextEditingController();
+      _confirmPassword = TextEditingController(),_phone = TextEditingController();
   final auth = FirebaseAuth.instance;
   bool _loading = false;
-
+  void phoneAuth() async {
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: "+966${_phone.text}".trim(),
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {},
+      codeSent: (String verificationId, int? resendToken) {
+        Navigator.of(context).pushReplacementNamed('/phoneverify');
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
+  }
   Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
@@ -101,6 +111,53 @@ class _SignUpState extends State<SignUp> {
                           isPassword: true,
                           validation: valConfirmPass,
                           passwordToConfirm: _password.text),
+                    // Text('or'),
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
+                    // Container(
+                    //   height: 55,
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(width: 1, color: Colors.grey),
+                    //       borderRadius: BorderRadius.circular(10)),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       SizedBox(
+                    //         width: 10,
+                    //       ),
+                    //       SizedBox(
+                    //         width: 40,
+                    //         child: TextField(
+                    //           controller: TextEditingController(text: '+966'),
+                    //           keyboardType: TextInputType.number,
+                    //           decoration: InputDecoration(
+                    //             border: InputBorder.none,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       Text(
+                    //         "|",
+                    //         style: TextStyle(fontSize: 33, color: Colors.grey),
+                    //       ),
+                    //       SizedBox(
+                    //         width: 10,
+                    //       ),
+                    //       Expanded(
+                    //           child: TextField(
+                    //         controller: _phone,
+                    //         keyboardType: TextInputType.phone,
+                    //         decoration: InputDecoration(
+                    //           border: InputBorder.none,
+                    //           hintText: "Phone",
+                    //         ),
+                    //       ))
+                    //     ],
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: 12,
+                    ),
                       CustomButton(text: "Sign up", onPressed: _submit),
                       const AccountNavigator(
                           question: 'Already have an account? ',

@@ -67,7 +67,8 @@ class _SignInState extends State<SignIn> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("Let’s sign you in",
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700)),
+                    style:
+                        TextStyle(fontSize: 32, fontWeight: FontWeight.w700)),
                 const Padding(
                   padding: EdgeInsets.only(top: 10, bottom: 20),
                   child: Text('Welcome back\nyou’ve been missed!',
@@ -89,6 +90,54 @@ class _SignInState extends State<SignIn> {
                           hint: 'Enter your password',
                           isPassword: true,
                           validation: valPass),
+                      Text('or'),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 55,
+                        decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            SizedBox(
+                              width: 40,
+                              child: TextField(
+                                controller: TextEditingController(text: '+966'),
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "|",
+                              style:
+                                  TextStyle(fontSize: 33, color: Colors.grey),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                                child: TextField(
+                              controller: _phone,
+                              keyboardType: TextInputType.phone,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Phone",
+                              ),
+                            ))
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
                       CustomButton(text: "Sign In", onPressed: _submit),
                       const AccountNavigator(
                           question: 'Don\'nt have an account? ',
