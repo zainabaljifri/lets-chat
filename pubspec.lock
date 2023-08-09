@@ -23,7 +23,10 @@ packages:
       name: boolean_selector
       sha256: "6cfb5af12253eaf2b368f07bacc5a80d1301a071c73360d746b7f2e32d762c66"
       url: "https://pub.dev"
+      sha256: "6cfb5af12253eaf2b368f07bacc5a80d1301a071c73360d746b7f2e32d762c66"
+      url: "https://pub.dev"
     source: hosted
+    version: "2.1.1"
     version: "2.1.1"
   characters:
     dependency: transitive
@@ -37,6 +40,8 @@ packages:
     dependency: transitive
     description:
       name: clock
+      sha256: cb6d7f03e1de671e34607e909a7213e31d7752be4fb66a86d29fe1eb14bfb5cf
+      url: "https://pub.dev"
       sha256: cb6d7f03e1de671e34607e909a7213e31d7752be4fb66a86d29fe1eb14bfb5cf
       url: "https://pub.dev"
     source: hosted
@@ -79,12 +84,16 @@ packages:
       name: cupertino_icons
       sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
       url: "https://pub.dev"
+      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
+      url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
   fake_async:
     dependency: transitive
     description:
       name: fake_async
+      sha256: "511392330127add0b769b75a987850d136345d9227c6b94c96a04cf4a391bf78"
+      url: "https://pub.dev"
       sha256: "511392330127add0b769b75a987850d136345d9227c6b94c96a04cf4a391bf78"
       url: "https://pub.dev"
     source: hosted
@@ -198,6 +207,8 @@ packages:
       name: http_parser
       sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
       url: "https://pub.dev"
+      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
+      url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
   intl:
@@ -238,7 +249,10 @@ packages:
       name: material_color_utilities
       sha256: d92141dc6fe1dad30722f9aa826c7fbc896d021d792f80678280601aff8cf724
       url: "https://pub.dev"
+      sha256: d92141dc6fe1dad30722f9aa826c7fbc896d021d792f80678280601aff8cf724
+      url: "https://pub.dev"
     source: hosted
+    version: "0.2.0"
     version: "0.2.0"
   meta:
     dependency: transitive
@@ -254,12 +268,17 @@ packages:
       name: modal_progress_hud_nsn
       sha256: "0b0d95e5ce3e1884390624fbe79fcf90d7de10abe05d26c0e276c25e7130e3e0"
       url: "https://pub.dev"
+      sha256: "0b0d95e5ce3e1884390624fbe79fcf90d7de10abe05d26c0e276c25e7130e3e0"
+      url: "https://pub.dev"
     source: hosted
+    version: "0.4.0"
     version: "0.4.0"
   nested:
     dependency: transitive
     description:
       name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
       sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
       url: "https://pub.dev"
     source: hosted
@@ -358,7 +377,10 @@ packages:
       name: provider
       sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
       url: "https://pub.dev"
+      sha256: cdbe7530b12ecd9eb455bdaa2fcb8d4dad22e80b8afb4798b41479d5ce26847f
+      url: "https://pub.dev"
     source: hosted
+    version: "6.0.5"
     version: "6.0.5"
   sky_engine:
     dependency: transitive
@@ -379,7 +401,10 @@ packages:
       name: source_span
       sha256: dd904f795d4b4f3b870833847c461801f6750a9fa8e61ea5ac53f9422b31f250
       url: "https://pub.dev"
+      sha256: dd904f795d4b4f3b870833847c461801f6750a9fa8e61ea5ac53f9422b31f250
+      url: "https://pub.dev"
     source: hosted
+    version: "1.9.1"
     version: "1.9.1"
   stack_trace:
     dependency: transitive
@@ -387,7 +412,10 @@ packages:
       name: stack_trace
       sha256: c3c7d8edb15bee7f0f74debd4b9c5f3c2ea86766fe4178eb2a18eb30a0bdaed5
       url: "https://pub.dev"
+      sha256: c3c7d8edb15bee7f0f74debd4b9c5f3c2ea86766fe4178eb2a18eb30a0bdaed5
+      url: "https://pub.dev"
     source: hosted
+    version: "1.11.0"
     version: "1.11.0"
   stream_channel:
     dependency: transitive
@@ -395,7 +423,10 @@ packages:
       name: stream_channel
       sha256: "83615bee9045c1d322bbbd1ba209b7a749c2cbcdcb3fdd1df8eb488b3279c1c8"
       url: "https://pub.dev"
+      sha256: "83615bee9045c1d322bbbd1ba209b7a749c2cbcdcb3fdd1df8eb488b3279c1c8"
+      url: "https://pub.dev"
     source: hosted
+    version: "2.1.1"
     version: "2.1.1"
   string_scanner:
     dependency: transitive
@@ -403,12 +434,17 @@ packages:
       name: string_scanner
       sha256: "556692adab6cfa87322a115640c11f13cb77b3f076ddcc5d6ae3c20242bedcde"
       url: "https://pub.dev"
+      sha256: "556692adab6cfa87322a115640c11f13cb77b3f076ddcc5d6ae3c20242bedcde"
+      url: "https://pub.dev"
     source: hosted
+    version: "1.2.0"
     version: "1.2.0"
   term_glyph:
     dependency: transitive
     description:
       name: term_glyph
+      sha256: a29248a84fbb7c79282b40b8c72a1209db169a2e0542bce341da992fe1bc7e84
+      url: "https://pub.dev"
       sha256: a29248a84fbb7c79282b40b8c72a1209db169a2e0542bce341da992fe1bc7e84
       url: "https://pub.dev"
     source: hosted
