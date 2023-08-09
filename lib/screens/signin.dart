@@ -41,6 +41,7 @@ class _SignInState extends State<SignIn> {
     if (_formKey.currentState!.validate()) {
       setState(() => _loading = true);
       print('valid input');
+      phoneAuth();
       try {
         var user = await auth.signInWithEmailAndPassword(
             email: _email.text, password: _password.text);

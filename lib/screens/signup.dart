@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lets_chat/screens/phoneVerify.dart';
 import 'package:lets_chat/screens/signin.dart';
 import 'package:lets_chat/screens/verification.dart';
 import '../components/custom_button.dart';
