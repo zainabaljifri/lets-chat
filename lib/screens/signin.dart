@@ -91,8 +91,8 @@ class _SignInState extends State<SignIn> {
                           hint: 'Enter your password',
                           isPassword: true,
                           validation: valPass),
-                      Text('or'),
-                      SizedBox(
+                      const Text('or'),
+                      const SizedBox(
                         height: 10,
                       ),
                       Container(
@@ -103,7 +103,7 @@ class _SignInState extends State<SignIn> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             SizedBox(
@@ -111,24 +111,24 @@ class _SignInState extends State<SignIn> {
                               child: TextField(
                                 controller: TextEditingController(text: '+966'),
                                 keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                               ),
                             ),
-                            Text(
+                            const Text(
                               "|",
                               style:
                                   TextStyle(fontSize: 33, color: Colors.grey),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Expanded(
                                 child: TextField(
                               controller: _phone,
                               keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Phone",
                               ),
@@ -136,7 +136,7 @@ class _SignInState extends State<SignIn> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       CustomButton(text: "Sign In", onPressed: _submit),

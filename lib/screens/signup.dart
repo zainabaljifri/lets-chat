@@ -21,7 +21,8 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _name = TextEditingController(),
       _email = TextEditingController(),
       _password = TextEditingController(),
-      _confirmPassword = TextEditingController(),_phone = TextEditingController();
+      _confirmPassword = TextEditingController(),
+      _phone = TextEditingController();
   final auth = FirebaseAuth.instance;
   bool _loading = false;
   void phoneAuth() async {
@@ -35,6 +36,7 @@ class _SignUpState extends State<SignUp> {
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
   }
+
   Future<void> _submit() async {
     setState(() => _submitted = true);
     if (_formKey.currentState!.validate()) {
@@ -47,15 +49,15 @@ class _SignUpState extends State<SignUp> {
         Navigator.pushNamed(context, Verification.id);
       } catch (e) {
         setState(() => _loading = false);
-        final snackBar = SnackBar(
-          content: Text(e.toString()),
-          action: SnackBarAction(
-            label: 'Undo',
-            onPressed: () {
-              // Some code to undo the change.
-            },
-          ),
-        );
+        // final snackBar = SnackBar(
+        //   content: Text(e.toString()),
+        //   action: SnackBarAction(
+        //     label: 'Undo',
+        //     onPressed: () {
+        //       // Some code to undo the change.
+        //     },
+        //   ),
+        // );
       }
     }
   }
@@ -110,53 +112,53 @@ class _SignUpState extends State<SignUp> {
                           isPassword: true,
                           validation: valConfirmPass,
                           passwordToConfirm: _password.text),
-                    // Text('or'),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    // Container(
-                    //   height: 55,
-                    //   decoration: BoxDecoration(
-                    //       border: Border.all(width: 1, color: Colors.grey),
-                    //       borderRadius: BorderRadius.circular(10)),
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.center,
-                    //     children: [
-                    //       SizedBox(
-                    //         width: 10,
-                    //       ),
-                    //       SizedBox(
-                    //         width: 40,
-                    //         child: TextField(
-                    //           controller: TextEditingController(text: '+966'),
-                    //           keyboardType: TextInputType.number,
-                    //           decoration: InputDecoration(
-                    //             border: InputBorder.none,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       Text(
-                    //         "|",
-                    //         style: TextStyle(fontSize: 33, color: Colors.grey),
-                    //       ),
-                    //       SizedBox(
-                    //         width: 10,
-                    //       ),
-                    //       Expanded(
-                    //           child: TextField(
-                    //         controller: _phone,
-                    //         keyboardType: TextInputType.phone,
-                    //         decoration: InputDecoration(
-                    //           border: InputBorder.none,
-                    //           hintText: "Phone",
-                    //         ),
-                    //       ))
-                    //     ],
-                    //   ),
-                    // ),
-                    SizedBox(
-                      height: 12,
-                    ),
+                      // Text('or'),
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
+                      // Container(
+                      //   height: 55,
+                      //   decoration: BoxDecoration(
+                      //       border: Border.all(width: 1, color: Colors.grey),
+                      //       borderRadius: BorderRadius.circular(10)),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: [
+                      //       SizedBox(
+                      //         width: 10,
+                      //       ),
+                      //       SizedBox(
+                      //         width: 40,
+                      //         child: TextField(
+                      //           controller: TextEditingController(text: '+966'),
+                      //           keyboardType: TextInputType.number,
+                      //           decoration: InputDecoration(
+                      //             border: InputBorder.none,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       Text(
+                      //         "|",
+                      //         style: TextStyle(fontSize: 33, color: Colors.grey),
+                      //       ),
+                      //       SizedBox(
+                      //         width: 10,
+                      //       ),
+                      //       Expanded(
+                      //           child: TextField(
+                      //         controller: _phone,
+                      //         keyboardType: TextInputType.phone,
+                      //         decoration: InputDecoration(
+                      //           border: InputBorder.none,
+                      //           hintText: "Phone",
+                      //         ),
+                      //       ))
+                      //     ],
+                      //   ),
+                      // ),
+                      const SizedBox(
+                        height: 12,
+                      ),
                       CustomButton(text: "Sign up", onPressed: _submit),
                       const AccountNavigator(
                           question: 'Already have an account? ',

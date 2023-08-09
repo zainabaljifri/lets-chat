@@ -10,24 +10,33 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        onPressed();
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.red,
+    return SizedBox(
+      width: double.infinity,
+      height: 60,
+      child: ElevatedButton(
+        style: const ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
+        ),
+        onPressed: () {
+          onPressed();
+        },
+        // child: Container(
+        //   padding: const EdgeInsets.only(
+        //     top: 20,
+        //     bottom: 20,
+        //   ),
+        //   alignment: Alignment.center,
+        //   decoration: BoxDecoration(
+        //     borderRadius: kBorderRadius,
+        //     color: kPrimaryColor,
+        //   ),
+        child: Text(
+          text,
+          style: const TextStyle(
+              fontSize: 20, color: kBGColor, fontWeight: FontWeight.w600),
+        ),
+        // ),
       ),
-      child: Container(
-          margin: const EdgeInsets.all(0),
-          padding: const EdgeInsets.only(top: 20, bottom: 20),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: kBorderRadius,
-            color: kPrimaryColor,
-          ),
-          child: Text(text,
-              style: const TextStyle(
-                  fontSize: 20, color: kBGColor, fontWeight: FontWeight.w600))),
     );
   }
 }
